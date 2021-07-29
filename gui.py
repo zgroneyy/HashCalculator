@@ -13,8 +13,8 @@ from hash_calc import get_digest
 import hashlib
 import sys 
   
-content = ''
-file_path = ''
+# content = ''
+# file_path = ''
 
 
 def open_file():
@@ -57,10 +57,8 @@ f1.pack(fill=X)
 f2 = Frame(mf, width=600, height=250)
 f2.pack()
 
-file_path = StringVar
-
-
-Label(f1,text="Select Your File").grid(row=0, column=0, sticky='e')
+l0 = Label(f1,text="Select Your File")
+l0.grid(row=0, column=0, sticky='e')
 l1 = Label(f1,text="-")
 l1.grid(row=1, column=0, sticky='e')
 def press():
@@ -69,7 +67,6 @@ def press():
 entry = Entry(f1, width=50, textvariable=file_path)
 entry.grid(row=0,column=1,padx=2,pady=2,sticky='we',columnspan=25)
 Button(f1, text="Browse", command=open_file).grid(row=0, column=27, sticky='ew', padx=8, pady=4)
-# Button(f2, text="Process Now", width=32, command=lambda: get_digest(filename)).grid(sticky='ew', padx=10, pady=10)
 Button(f2, text="Process Now", width=32, command=press).grid(sticky='ew', padx=10, pady=10)
 
 root.mainloop()
