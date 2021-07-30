@@ -9,12 +9,13 @@ import os
 from tkinter import filedialog
 from tkinter.filedialog import askopenfilename
 from tkinter import *
+from tkinter.messagebox import showinfo
 import hashlib
 import sys 
   
 content = ''
 file_path = ''
-
+filename = ''
 #define base
 root = Tk()
 root.title('File Hash Calculator')
@@ -42,10 +43,23 @@ def get_digest(file_path):
                 break
             h.update(chunk)
     return h.hexdigest()
-#print the hash calculated to the label
+#print the hash calculated to the label, if file is properly selected of course.
 def press():
     output.delete('1.0', END)
-    output.insert(END, str(get_digest(filename)))
+    if (len(file_path)!=0):
+        output.insert(END, str(get_digest(filename)))
+
+#pop-up message to warn user to select file
+def message():
+	if len(file_path)==0:
+		showinfo("Message", f"Select file to apply hashing!") 
+
+#when Process button is pressed, we have to do 2 jobs together, so we need a combiner
+def combine_funcs(*funcs):
+    def combined_func(*args, **kwargs):
+        for f in funcs:
+            f(*args, **kwargs)
+    return combined_func
 
 mf = Frame(root)
 mf.pack()
@@ -71,7 +85,7 @@ but2 = Button(f1, text="Process Now", bg='#40e0d0')
 but2.grid(row=6, column=0, columnspan=2)
 # button clicks
 but1.configure(command=open_file)
-but2.configure(command=press)
+but2.configure(command=combine_funcs(press, message))
 #end
 root.mainloop()
 
