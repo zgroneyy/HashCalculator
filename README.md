@@ -52,7 +52,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- The File Hash Calculator is a simple utility created by [Your Name].
+- The File Hash Calculator is a simple utility created by Özgür Öney.
 - Special thanks to the Python community and libraries like `pyperclip`.
 
-Feel free to customize the README file with your own information, and replace `[your-username]` and `[Your Name]` with your GitHub username and name.
