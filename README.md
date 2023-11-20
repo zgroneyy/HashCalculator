@@ -23,12 +23,12 @@ Before using the File Hash Calculator, make sure you have the following prerequi
 
 1. Clone this repository to your local machine:
    ```
-   git clone https://github.com/zgroneyy/file-hash-calculator.git
+   git clone https://github.com/zgroneyy/HashCalculator.git
    ```
 
 2. Change to the project directory:
    ```
-   cd file-hash-calculator
+   cd HashCalculator
    ```
 
 3. Run the application:
